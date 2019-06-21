@@ -34,3 +34,13 @@ services:
       - rabbitmq:rmq.dev
     networks:
       - default
+
+
+  hello-go-3:
+    build: .
+    ports:
+      - 8080
+    links:
+      - rabbitmq:rmq.dev
+    networks:
+      - default
