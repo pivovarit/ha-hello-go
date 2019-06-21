@@ -1,4 +1,4 @@
-FROM golang:1.12.6-stretch
+FROM golang:1.12.6-alpine3.10
 
 EXPOSE 8080
 

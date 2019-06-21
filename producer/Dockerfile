@@ -1,4 +1,4 @@
-FROM golang:1.12.6-stretch
+FROM golang:1.12.6-alpine3.10
 
 RUN mkdir /src
 ADD producer.go /src/producer.go
