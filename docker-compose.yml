@@ -14,6 +14,7 @@ services:
     depends_on:
       - hello-go-1
       - hello-go-2
+      - hello-go-3
     ports:
       - 8080:8080
 
