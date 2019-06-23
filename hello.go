@@ -1,30 +1,28 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-	"time"
-)
+import . "fmt"
+import . "net/http"
+import "time"
 
 func main() {
-	http.HandleFunc("/", func(writer http.ResponseWriter, req *http.Request) {
-		fmt.Println("Got a request: ", req.RequestURI, time.Now())
+	HandleFunc("/", func(writer ResponseWriter, req *Request) {
+		Println("Got a request: ", req.RequestURI, time.Now())
 
-		_, _ = fmt.Fprint(writer, "hello")
+		_, _ = Fprint(writer, "hello")
 	})
 
-	http.HandleFunc("/api/auth", func(writer http.ResponseWriter, req *http.Request) {
-		fmt.Println("Got a request: ", req.RequestURI, time.Now())
+	HandleFunc("/api/auth", func(writer ResponseWriter, req *Request) {
+		Println("Got a request: ", req.RequestURI, time.Now())
 
-		_, _ = fmt.Fprint(writer, "hello auth")
+		_, _ = Fprint(writer, "hello auth")
 	})
 
-	http.HandleFunc("/api/users", func(writer http.ResponseWriter, req *http.Request) {
-		fmt.Println("Got a request: ", req.RequestURI, time.Now())
+	HandleFunc("/api/users", func(writer ResponseWriter, req *Request) {
+		Println("Got a request: ", req.RequestURI, time.Now())
 
-		_, _ = fmt.Fprint(writer, "hello users")
+		_, _ = Fprint(writer, "hello users")
 	})
 
-	fmt.Println("Starting hello-go web-server...")
-	_ = http.ListenAndServe(":8080", nil)
+	Println("Starting hello-go web-server...")
+	_ = ListenAndServe(":8080", nil)
 }
