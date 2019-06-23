@@ -32,6 +32,13 @@ services:
     networks:
       - default
 
+  hello-go-4:
+    build: .
+    ports:
+      - 8080
+    networks:
+      - default
+
   producer:
     build: producer
     networks:
