@@ -30,15 +30,15 @@ services:
     networks:
       - default
 
-  hello-go-3:
-    build: .
+  authenticator-go-1:
+    build: authenticator
     ports:
       - 8080
     networks:
       - default
 
-  hello-go-4:
-    build: .
+  authenticator-go-2:
+    build: authenticator
     ports:
       - 8080
     networks:
