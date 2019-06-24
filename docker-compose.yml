@@ -3,14 +3,14 @@ version: "3.7"
 
 services:
   nginx:
-    build: nginx
+    build: gateway
     ports:
       - 8080:80
     networks:
       - default
 
   haproxy:
-    build: haproxy
+    build: load-balancer
     ports:
       - 8080
     networks:
