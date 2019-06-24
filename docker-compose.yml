@@ -11,8 +11,6 @@ services:
 
   haproxy:
     build: haproxy
-    depends_on:
-      - nginx
     ports:
       - 8080
     networks:
@@ -50,8 +48,6 @@ services:
     build: producer
     networks:
       - default
-    depends_on:
-      - hello-go-1
-      - hello-go-2
-      - hello-go-3
-      - hello-go-4
+    links:
+      - nginx:gateway
+
