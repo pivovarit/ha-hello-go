@@ -2,14 +2,21 @@
 version: "3.7"
 
 services:
+  nginx:
+    build: nginx
+    ports:
+      - 8080:80
+    networks:
+      - default
+
   haproxy:
     build: haproxy
     depends_on:
-      - hello-go-1
-      - hello-go-2
-      - hello-go-3
+      - nginx
     ports:
-      - 8080:8080
+      - 8080
+    networks:
+      - default
 
   hello-go-1:
     build: .
@@ -47,3 +54,4 @@ services:
       - hello-go-1
       - hello-go-2
       - hello-go-3
+      - hello-go-4
