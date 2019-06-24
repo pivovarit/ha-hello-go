@@ -16,15 +16,15 @@ services:
     networks:
       - default
 
-  hello-go-1:
-    build: .
+  users-go-1:
+    build: users
     ports:
       - 8080
     networks:
       - default
 
-  hello-go-2:
-    build: .
+  users-go-2:
+    build: users
     ports:
       - 8080
     networks:
