@@ -5,7 +5,7 @@ import . "net/http"
 import "time"
 
 func main() {
-	HandleFunc("/", func(writer ResponseWriter, req *Request) {
+	HandleFunc("/api/", func(writer ResponseWriter, req *Request) {
 		Println("Got a request: ", req.RequestURI, time.Now())
 
 		_, _ = Fprint(writer, "hello")
