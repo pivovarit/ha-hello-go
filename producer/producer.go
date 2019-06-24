@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 import "net/http"
 import "time"
 import "math/rand"
@@ -18,7 +21,7 @@ func main() {
 			fmt.Println("GET ", url, " at ", time.Now())
 			_, _ = http.Get(url)
 		} else if reqType == 1 {
-			url := "http://" + GatewayAddress + "/users"
+			url := "http://" + GatewayAddress + "/users" + "/" + strconv.FormatInt(int64(rand.Intn(100000)), 10)
 			fmt.Println("GET ", url, " at ", time.Now())
 			_, _ = http.Get(url)
 		}
