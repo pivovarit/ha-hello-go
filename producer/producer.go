@@ -12,7 +12,7 @@ const GatewayAddress = "gateway:80"
 
 func main() {
 	for {
-		time.Sleep(time.Duration(500+rand.Intn(1000)) * time.Millisecond)
+		time.Sleep(time.Duration(1000+rand.Intn(1000)) * time.Millisecond)
 
 		reqType := rand.Intn(2)
 
