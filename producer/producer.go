@@ -15,6 +15,8 @@ func main() {
 		time.Sleep(time.Duration(1000+rand.Intn(1000)) * time.Millisecond)
 
 		fmt.Println("")
+		fmt.Println("### PRODUCING ###")
+		fmt.Println("")
 
 		reqType := rand.Intn(2)
 
