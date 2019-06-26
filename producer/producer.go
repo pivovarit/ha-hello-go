@@ -14,6 +14,8 @@ func main() {
 	for {
 		time.Sleep(time.Duration(1000+rand.Intn(1000)) * time.Millisecond)
 
+		fmt.Println("")
+
 		reqType := rand.Intn(2)
 
 		if reqType == 0 {
