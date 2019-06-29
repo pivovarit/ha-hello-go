@@ -11,12 +11,6 @@ func main() {
 		_, _ = Fprint(writer, "hello")
 	})
 
-	HandleFunc("/api/auth", func(writer ResponseWriter, req *Request) {
-		Println("Got a request: ", req.RequestURI, time.Now())
-
-		_, _ = Fprint(writer, "hello auth")
-	})
-
 	HandleFunc("/api/users", func(writer ResponseWriter, req *Request) {
 		Println("Got a request: ", req.RequestURI, time.Now())
 
