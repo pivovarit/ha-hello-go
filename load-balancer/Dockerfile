@@ -1,10 +1,10 @@
 FROM haproxy:2.0.1-alpine
 
-RUN set -x	&& \
-	apk upgrade --update					&&  \
-	apk add bash ca-certificates rsyslog	                &&  \
-	mkdir -p /etc/rsyslog.d/				&&  \
-	touch /var/log/haproxy.log				&&  \
+RUN set -x	                                  &&  \
+	apk upgrade --update					  &&  \
+	apk add bash ca-certificates rsyslog	  &&  \
+	mkdir -p /etc/rsyslog.d/				  &&  \
+	touch /var/log/haproxy.log				  &&  \
 	ln -sf /dev/stdout /var/log/haproxy.log
 
 COPY etc/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
