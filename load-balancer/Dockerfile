@@ -1,4 +1,4 @@
-FROM haproxy:1.9.2-alpine
+FROM haproxy:2.0.1-alpine
 
 RUN set -x	&& \
 	apk upgrade --update					&&  \
