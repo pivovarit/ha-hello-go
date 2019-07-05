@@ -11,6 +11,6 @@ func main() {
 		_, _ = Fprint(writer, "hello auth")
 	})
 
-	Println("Starting hello-go web-server...")
+	Println("Starting authenticator-go web-server...")
 	_ = ListenAndServe(":8080", nil)
 }

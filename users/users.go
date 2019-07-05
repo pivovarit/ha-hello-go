@@ -17,6 +17,6 @@ func main() {
 		_, _ = Fprint(writer, "hello users")
 	})
 
-	Println("Starting hello-go web-server...")
+	Println("Starting users-go web-server...")
 	_ = ListenAndServe(":8080", nil)
 }
