@@ -10,10 +10,10 @@ RUN set -x	                                  &&  \
 COPY etc/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 ADD ./etc/rsyslog.conf /etc/rsyslog.conf
-RUN set -o errexit
-RUN set -o nounset
-RUN readonly RSYSLOG_PID="/var/run/rsyslogd.pid"
-RUN rm -f $RSYSLOG_PID
+RUN set -o errexit && \
+    set -o nounset && \
+    readonly RSYSLOG_PID="/var/run/rsyslogd.pid" && \
+    rm -f $RSYSLOG_PID
 
 COPY docker-entrypoint.sh docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
