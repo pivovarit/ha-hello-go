@@ -7,47 +7,54 @@ services:
     ports:
       - 8080:80
     networks:
-      - default
+      - backend
+      - frontend
 
   haproxy:
     build: load-balancer
     ports:
       - 8080
     networks:
-      - default
+      - backend
 
   users-go-1:
     build: users
     ports:
       - 8080
     networks:
-      - default
+      - backend
 
   users-go-2:
     build: users
     ports:
       - 8080
     networks:
-      - default
+      - backend
 
   authenticator-go-1:
     build: authenticator
     ports:
       - 8080
     networks:
-      - default
+      - backend
 
   authenticator-go-2:
     build: authenticator
     ports:
       - 8080
     networks:
-      - default
+      - backend
 
   producer:
     build: producer
     networks:
-      - default
+      - frontend
     links:
       - nginx:gateway
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
 
