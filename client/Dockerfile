@@ -1,8 +1,8 @@
 FROM golang:1.12.6-alpine3.10 AS temp
 
-ADD producer.go /producer.go
+ADD client.go /client.go
 
-RUN go build -o /service /producer.go
+RUN go build -o /service /client.go
 
 FROM alpine:latest
 

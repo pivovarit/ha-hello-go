@@ -2,6 +2,13 @@
 version: "3.7"
 
 services:
+  client:
+    build: client
+    networks:
+      - public
+    links:
+      - nginx:gateway
+
   nginx:
     build: gateway
     ports:
@@ -44,13 +51,6 @@ services:
       - 8080
     networks:
       - backend
-
-  producer:
-    build: producer
-    networks:
-      - public
-    links:
-      - nginx:gateway
 
 networks:
   public:
