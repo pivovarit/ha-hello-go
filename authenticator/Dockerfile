@@ -1,4 +1,4 @@
-FROM golang:1.12.6-alpine3.10 as temp
+FROM golang:1.12.6-alpine3.10 as builder
 
 ADD authenticator.go /authenticator.go
 
@@ -6,7 +6,7 @@ RUN go build -o /authenticator /authenticator.go
 
 FROM alpine:latest
 
-COPY --from=temp /authenticator .
+COPY --from=builder /authenticator .
 
 EXPOSE 8080
 
