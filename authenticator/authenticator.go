@@ -8,7 +8,7 @@ func main() {
 	HandleFunc("/api/auth", func(writer ResponseWriter, req *Request) {
 		Println("Authenticating: ", req.RequestURI, time.Now())
 
-		_, _ = Fprint(writer, "hello auth")
+		_, _ = Fprint(writer, "hello auth\n")
 	})
 
 	Println("Starting authenticator-go web-server...")
