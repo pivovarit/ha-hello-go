@@ -17,6 +17,13 @@ services:
       - backend
       - public
 
+  consul:
+    build: consul
+    ports:
+      - 8080
+    networks:
+      - backend
+
   haproxy:
     build: load-balancer
     ports:
