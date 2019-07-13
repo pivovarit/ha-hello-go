@@ -19,33 +19,33 @@ services:
 
   consul-1:
     build: consul
-    command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_1", "-bootstrap-expect", "3"]
+    command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_1", "-bootstrap-expect", "3", "-ui"]
     ports:
-      - 8500
-      - 8300-8310
+      - 8500:8500
+      - 8300-8305
       - 46354
     networks:
       - backend
 
   consul-2:
     build: consul
-    command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_2", "-join", "consul-1", "-bootstrap-expect", "3"]
+    command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_2", "-join", "consul-1", "-bootstrap-expect", "3", "-ui"]
     depends_on:
       - consul-1
     ports:
-      - 8500
-      - 8300-8310
+      - 8501:8500
+      - 8300-8305
       - 46354
     networks:
       - backend
   consul-3:
     build: consul
-    command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_3", "-join", "consul-1", "-bootstrap-expect", "3"]
+    command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_3", "-join", "consul-1", "-bootstrap-expect", "3", "-ui"]
     depends_on:
       - consul-1
     ports:
-      - 8500
-      - 8300-8310
+      - 8502:8500
+      - 8300-8305
       - 46354
     networks:
       - backend
