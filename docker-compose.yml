@@ -25,6 +25,14 @@ services:
     networks:
       - backend
 
+  vault:
+    build: vault
+    ports:
+      - 8080
+    networks:
+      - backend
+
+
   haproxy:
     build: load-balancer
     ports:
