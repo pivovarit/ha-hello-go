@@ -19,6 +19,7 @@ services:
 
   consul:
     build: consul
+    command: ["agent", "-dev", "-client", "0.0.0.0", "-node", "consul_1"]
     ports:
       - 8080
     networks:
