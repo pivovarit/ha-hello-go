@@ -19,19 +19,23 @@ services:
 
   consul:
     build: consul
-    command: ["agent", "-dev", "-client", "0.0.0.0", "-node", "consul_1"]
+    command: ["agent", "-server", "-data-dir", "/data", "-bind", "0.0.0.0", "-client", "0.0.0.0", "-node", "consul_1"]
     ports:
-      - 8080
+      - 8500
+      - 8300
     networks:
       - backend
 
   vault:
     build: vault
+    depends_on:
+      - consul
     ports:
-      - 8080
+      - 8200
+    cap_add:
+      - IPC_LOCK
     networks:
       - backend
-
 
   haproxy:
     build: load-balancer
