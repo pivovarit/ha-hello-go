@@ -22,7 +22,7 @@ services:
     command: ["agent", "-server", "-client", "0.0.0.0", "-node", "consul_1", "-bootstrap-expect", "3"]
     ports:
       - 8500
-      - 8300
+      - 8300-8310
       - 46354
     networks:
       - backend
@@ -34,7 +34,7 @@ services:
       - consul-1
     ports:
       - 8500
-      - 8300
+      - 8300-8310
       - 46354
     networks:
       - backend
@@ -45,7 +45,7 @@ services:
       - consul-1
     ports:
       - 8500
-      - 8300
+      - 8300-8310
       - 46354
     networks:
       - backend
