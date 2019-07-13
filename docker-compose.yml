@@ -17,23 +17,34 @@ services:
       - backend
       - public
 
-  consul:
+  consul-1:
     build: consul
-    command: ["agent", "-server", "-data-dir", "/data", "-bind", "0.0.0.0", "-client", "0.0.0.0", "-node", "consul_1"]
+    command: ["agent", "-server", "-bind", "0.0.0.0", "-client", "0.0.0.0", "-node", "consul_1"]
     ports:
-      - 8500
-      - 8300
+      - 8501
+      - 8301
     networks:
       - backend
 
-  vault:
-    build: vault
+  consul-2:
+    build: consul
+    command: ["agent", "-server", "-bind", "0.0.0.0", "-client", "0.0.0.0", "-node", "consul_2", "-join", "consul-1"]
     depends_on:
-      - consul
+      - consul-1
     ports:
-      - 8200
-    cap_add:
-      - IPC_LOCK
+      - 8501
+      - 8301
+    networks:
+      - backend
+
+  consul-3:
+    build: consul
+    command: ["agent", "-server", "-bind", "0.0.0.0", "-client", "0.0.0.0", "-node", "consul_3", "-join", "consul-1"]
+    depends_on:
+      - consul-1
+    ports:
+      - 8501
+      - 8301
     networks:
       - backend
 
