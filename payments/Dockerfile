@@ -29,4 +29,6 @@ RUN chown payments:payments payments
 
 USER payments
 
+EXPOSE 8080
+
 CMD ["./payments"]

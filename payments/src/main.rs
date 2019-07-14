@@ -1,22 +1,19 @@
 extern crate iron;
-#[macro_use]
-extern crate mime;
+extern crate router;
 
 use iron::prelude::*;
 use iron::status;
+use router::Router;
 
 fn main() {
+    let mut router = Router::new();
     println!("Hello, world!");
-    Iron::new(handler).http("localhost:8080").unwrap();
+
+    router.get("/api/payments", handler, "/api/payments");
+    Iron::new(router).http("127.0.0.1:8080").unwrap();
 }
 
-fn handler(_request: &mut Request) -> IronResult<Response> {
+fn handler(_: &mut Request) -> IronResult<Response> {
     println!("Got a request!");
-
-    let mut response = Response::new();
-
-    response.set_mut(status::Ok);
-    response.set_mut(mime!(Text/Plain; Charset=Utf8));
-    response.set_mut("Payments\n");
-    Ok(response)
+    Ok(Response::with((status::Ok, "Payments!")))
 }
