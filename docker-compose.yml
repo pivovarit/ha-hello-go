@@ -57,6 +57,20 @@ services:
     networks:
       - backend
 
+  payments-rust-1:
+    build: payments
+    ports:
+      - 8080
+    networks:
+      - backend
+
+  payments-rust-2:
+    build: payments
+    ports:
+      - 8080
+    networks:
+      - backend
+
   users-go-1:
     build: users
     ports:
