@@ -19,6 +19,8 @@ RUN RUSTFLAGS=-Clinker=musl-gcc cargo build --release --target=x86_64-unknown-li
 
 FROM alpine:latest
 
+RUN apk upgrade --update &&	apk add bash
+
 RUN addgroup -g 1000 payments && adduser -D -s /bin/sh -u 1000 -G payments payments
 
 WORKDIR /home/payments/bin/
